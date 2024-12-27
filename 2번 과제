@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+
+class Animal {
+public:
+   
+    virtual void makeSound() {
+        cout << "동물 소리" << endl;
+    }
+};
+
+
+class Dog : public Animal {
+public:
+    
+    void makeSound() override {
+        cout << "멍멍!" << endl;
+    }
+};
+
+
+class Cat : public Animal {
+public:
+    
+    void makeSound() override {
+        cout << "야옹!" << endl;
+    }
+};
+
+
+class Cow : public Animal {
+public:
+    
+    void makeSound() override {
+        cout << "음매!" << endl;
+    }
+};
+
+int main() {
+    
+    Animal* animals[3];
+
+    
+    animals[0] = new Dog();
+    animals[1] = new Cat();
+    animals[2] = new Cow();
+
+    
+    for (int i = 0; i < 3; ++i) {
+        animals[i]->makeSound();  
+    }
+
+    
+    delete animals[0];
+    delete animals[1];
+    delete animals[2];
+
+    return 0;
+}
